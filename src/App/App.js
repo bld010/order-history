@@ -35,7 +35,7 @@ class App extends Component {
           throw Error('Error deleting item.')
         }
       })
-      .catch(error => console.log(error))
+      .catch(error => console.Error(error))
   }
 
   postNewPurchase = (newPurchase) => {
@@ -50,10 +50,10 @@ class App extends Component {
     fetch('http://localhost:3001/api/v1/purchases', options)
       .then(resp => {
         if (!resp.ok) {
-          throw Error('Error posting purchases');
+          throw Error('Error posting purchases.');
         }
       })
-      .catch(error => console.log(error))
+      .catch(error => console.Error(error))
   }
 
   fetchPurchases = () => {

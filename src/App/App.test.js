@@ -82,19 +82,33 @@ describe('App', () => {
 
       describe('postNewPurchase', () => {
 
+        let mockNewPurchase = { 
+          id: 1, 
+          name: 'iPhone', 
+          description: 'Expensive phone',
+          img: 'www.apple.com/iphone.bmp',
+          price: 900
+         }
+
         it('should call fetch with the correct url', () => {
-          let mockNewPurchase = { 
-            id: 1, 
-            name: 'iPhone', 
-            description: 'Expensive phone',
-            img: 'www.apple.com/iphone.bmp',
-            price: 900
-           }
-
           wrapper.instance().postNewPurchase(mockNewPurchase)
-
           expect(window.fetch).toHaveBeenCalledWith('http://localhost:3001/api/v1/purchases')
         })
+
+        // it('should return an error (sad)', () => {
+        //   window.fetch = jest.fn()
+        //     .mockImplementation(() => {
+        //       return Promise.resolve({
+        //         ok: false
+        //       }).then(resp => resp.json())
+        //     })
+            
+          
+        //   console.log(wrapper.instance().postNewPurchase(mockNewPurchase));
+
+        //   expect(wrapper.instance().postNewPurchase(mockNewPurchase)).rejects.toEqual(Error('Error posting purchases.'))
+          
+        // })
       })
 
   })

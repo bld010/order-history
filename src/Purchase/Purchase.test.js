@@ -12,11 +12,24 @@ describe('Purchase', () => {
       price: 900
      }
 
+  let wrapper = null;
+  let mockDeletePurchase = jest.fn()
 
+    beforeEach(() => {
+
+    wrapper = shallow(<Purchase 
+      deletePurchase={mockDeletePurchase}
+      purchase={mockPurchase}/>)
+  })
   it('should match the snapshot', () => {
-    const wrapper = shallow(<Purchase purchase={mockPurchase}/>)
     expect(wrapper).toMatchSnapshot();
   })
 
-  //button should fire deleteFromHistory prop
+  it('should fire deletePurchase when button is clicked', () => {
+    
+    
+    wrapper.find('button').simulate('click')
+
+    expect(mockDeletePurchase).toHaveBeenCalled();
+  })
 })

@@ -17,6 +17,6 @@ const Purchase = ({purchase, deletePurchase}) => {
       </div>
     </article>
   )
-} 
+}
 
 export default Purchase;

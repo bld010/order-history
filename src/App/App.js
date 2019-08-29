@@ -57,19 +57,20 @@ class App extends Component {
   }
 
   fetchPurchases = () => {
-    fetch('http://localhost:3001/api/v1/purchases')
+    return fetch('http://localhost:3001/api/v1/purchases')
       .then(resp => {
         if (!resp.ok) {
           throw Error('Error fetching purchases.');
         }
         return resp.json();
       })
-      .then(data => this.setState({purchases: data}))
-      .catch(error => console.Error('There was an error with the fetch.'))
+      
   }
 
   componentDidMount = () => {
-    this.fetchPurchases();
+    this.fetchPurchases()
+    .then(data => this.setState({purchases: data}))
+    .catch(error => console.Error('There was an error with the fetch.'))
   }
 
   render() {

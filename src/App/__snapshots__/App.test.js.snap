@@ -23,7 +23,19 @@ exports[`App should match the snapshot 1`] = `
   >
     <PurchasesContainer
       deletePurchase={[Function]}
-      purchases={Array []}
+      purchases={
+        Array [
+          Object {
+            "name": "X",
+          },
+          Object {
+            "name": "Y",
+          },
+          Object {
+            "name": "Z",
+          },
+        ]
+      }
     />
   </div>
 </div>

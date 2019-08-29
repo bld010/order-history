@@ -36,8 +36,8 @@ describe('App', () => {
     expect(expected).toEqual([...mockPurchases, mockNewPurchase])
   })
 
-  it('should call fetch with the correct url', () => {
 
+  describe('fetchPurchases', () => {
 
     let mockPurchases = [
       {name: 'X'},
@@ -52,10 +52,33 @@ describe('App', () => {
           json: () => Promise.resolve(mockPurchases)
         })
       })
+    
 
-      wrapper.instance().fetchPurchases();
+    it('should call fetch with the correct url', () => {
+        wrapper.instance().fetchPurchases();
+        expect(window.fetch).toHaveBeenCalledWith('http://localhost:3001/api/v1/purchases')
+    })
 
-      expect(window.fetch).toHaveBeenCalledWith('http://localhost:3001/api/v1/purchases')
+    it('should return an array of ideas (happy)', () => {
+      let fetchPurchases = wrapper.instance().fetchPurchases;
+      
+      expect(fetchPurchases()).resolves.toEqual(mockPurchases)
+
+    })
+
+    it('should return an error (sad)' , () => {
+      window.fetch = jest.fn()
+        .mockImplementation(() => {
+          return Promise.resolve({
+            ok: false
+          })
+        })
+
+      let fetchPurchases = wrapper.instance().fetchPurchases;
+
+      expect(fetchPurchases()).rejects.toEqual(Error('Error fetching purchases.'))
+
+    })
 
   })
 

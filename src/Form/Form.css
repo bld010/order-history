@@ -6,3 +6,15 @@
   height: 100%;
   width: 50%;
 }
+
+.Form input {
+  height: 30px;
+  width: 100%;
+}
+
+.Form button {
+  height: 50px;
+  background: rgb(103, 206, 103);
+  color: white;
+  width: 100%;
+}

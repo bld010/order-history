@@ -73,7 +73,7 @@ class App extends Component {
       <div className="App">
         <header>
           <h1 className='app-title'>My Order History</h1>
-          <div className='purchase-form'>
+          <div className='Form'>
             <Form addNewPurchase={this.addNewPurchase} />
           </div>
         </header>

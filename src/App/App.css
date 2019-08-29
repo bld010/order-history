@@ -19,7 +19,8 @@ h1 {
 
 
 .purchase-container {
-  height: 700px;
+  height: auto;
+  min-height: 700px;
   background:#CECECE;
   display: flex;
   flex-wrap: wrap;

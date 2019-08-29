@@ -37,6 +37,30 @@ describe('Form', () => {
     })
   })
 
+  it('should clear state/inputs when button is clicked', () => {
+    wrapper.setState({
+      id: 2, 
+      img: '',
+      name: 'iPhone X',
+      description: '',
+      price: ''
+    })
+
+    wrapper.find('button').simulate('click');
+    wrapper.state().id = 2
+    const expected = wrapper.state()
+
+    expect(expected).toEqual(
+      {
+        id: 2, 
+        img: '',
+        name: '',
+        description: '',
+        price: ''
+      }
+    )
+  })
+ 
   //clearInputs
   //handlePurchaseClick
 })

@@ -6,11 +6,13 @@ const PurchasesContainer = ({purchases}) =>  {
 
 
   let purchaseList = purchases.map(purchase => {
-    return <Purchase purchase={purchase} />
+    return <Purchase key={purchase.id} purchase={purchase} />
   })
 
   return(
-    <p>{purchaseList}</p>
+    <>
+    {purchaseList}
+    </>
   )
 }
 

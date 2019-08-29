@@ -5,7 +5,7 @@ const Purchase = ({purchase}) => {
   return(
     <article className="Purchase">
       <div className="left">
-        <img src={purchase.img}></img>
+        <img src={purchase.img} alt={purchase.name}></img>
       </div>
       <div className="center">
         <h3>{purchase.name}</h3>

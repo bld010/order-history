@@ -60,7 +60,10 @@ describe('Form', () => {
       }
     )
   })
+
+  it('should fire addNewPurchase when button is clicked', () => {
+    wrapper.find('button').simulate('click')
+    expect(mockAddNewPurchase).toHaveBeenCalled();
+  })
  
-  //clearInputs
-  //handlePurchaseClick
 })

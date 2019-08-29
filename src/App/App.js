@@ -22,11 +22,20 @@ class App extends Component {
     let updatedPurchases = this.state.purchases.filter( purchase => {
       return purchase.id !== idOfPurchase
     })
-    this.setState({purchases: updatedPurchases})
+    this.setState({purchases: updatedPurchases});
+    this.deletePurchaseFetch(idOfPurchase)
   } 
 
-  deletePurchaseFetch = () => {
-
+  deletePurchaseFetch = (id) => {
+    fetch(`http://localhost:3001/api/v1/purchases/${id}`, {
+      method: 'DELETE'
+    })
+      .then(resp => {
+        if (!resp.ok) {
+          throw Erorr('Error deleting item.')
+        }
+      })
+      .catch(error => console.error(error))
   }
 
   postNewPurchase = (newPurchase) => {

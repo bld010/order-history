@@ -56,7 +56,7 @@ class App extends Component {
       .catch(error => console.Error(error))
   }
 
-  componentDidMount = () => {
+  fetchPurchases = () => {
     fetch('http://localhost:3001/api/v1/purchases')
       .then(resp => {
         if (!resp.ok) {
@@ -66,6 +66,10 @@ class App extends Component {
       })
       .then(data => this.setState({purchases: data}))
       .catch(error => console.Error('There was an error with the fetch.'))
+  }
+
+  componentDidMount = () => {
+    this.fetchPurchases();
   }
 
   render() {

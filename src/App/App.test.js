@@ -16,7 +16,7 @@ describe('App', () => {
     wrapper=shallow(<App />)
   })
 
-  it('should match the wrapper', () => {
+  it('should match the snapshot', () => {
     expect(wrapper).toMatchSnapshot();
   })
 

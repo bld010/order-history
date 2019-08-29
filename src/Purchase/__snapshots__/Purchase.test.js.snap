@@ -29,7 +29,9 @@ exports[`Purchase should match the snapshot 1`] = `
       $
       900
     </h3>
-    <button>
+    <button
+      onClick={[Function]}
+    >
       Remove From History
     </button>
   </div>

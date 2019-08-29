@@ -13,7 +13,7 @@ const Purchase = ({purchase, deletePurchase}) => {
       </div>
       <div className="right">
         <h3>${purchase.price}</h3>
-        <button onClick={(d) => deletePurchase(e, purchase.id)}>Remove From History</button>
+        <button onClick={(e) => deletePurchase(e, purchase.id)}>Remove From History</button>
       </div>
     </article>
   )

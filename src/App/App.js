@@ -32,7 +32,7 @@ class App extends Component {
     })
       .then(resp => {
         if (!resp.ok) {
-          throw Erorr('Error deleting item.')
+          throw Error('Error deleting item.')
         }
       })
       .catch(error => console.error(error))

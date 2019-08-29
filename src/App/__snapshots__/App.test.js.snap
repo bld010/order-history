@@ -22,6 +22,7 @@ exports[`App should match the snapshot 1`] = `
     className="purchase-container"
   >
     <PurchasesContainer
+      deletePurchase={[Function]}
       purchases={Array []}
     />
   </div>

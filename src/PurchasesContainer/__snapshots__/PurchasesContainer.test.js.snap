@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PurchasesContainer should match the snapshot 1`] = `
+<Fragment>
+  <Purchase
+    key="1"
+    purchase={
+      Object {
+        "description": "Expensive phone",
+        "id": 1,
+        "img": "www.apple.com/iphone.bmp",
+        "name": "iPhone",
+        "price": 900,
+      }
+    }
+  />
+  <Purchase
+    key="1"
+    purchase={
+      Object {
+        "description": "More Expensive phone",
+        "id": 1,
+        "img": "www.apple.com/iphone.bmp",
+        "name": "iPhone 12",
+        "price": 92300,
+      }
+    }
+  />
+</Fragment>
+`;

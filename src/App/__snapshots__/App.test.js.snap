@@ -1,3 +1,29 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`App should match the snapshot 1`] = `ShallowWrapper {}`;
+exports[`App should match the snapshot 1`] = `
+<div
+  className="App"
+>
+  <header>
+    <h1
+      className="app-title"
+    >
+      My Order History
+    </h1>
+    <div
+      className="purchase-form"
+    >
+      <Form
+        addNewPurchase={[Function]}
+      />
+    </div>
+  </header>
+  <div
+    className="purchase-container"
+  >
+    <PurchasesContainer
+      purchases={Array []}
+    />
+  </div>
+</div>
+`;

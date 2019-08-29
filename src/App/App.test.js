@@ -35,4 +35,7 @@ describe('App', () => {
 
     expect(expected).toEqual([...mockPurchases, mockNewPurchase])
   })
+
+  //postNewPurchase Fetch
+  //componentDidMount --> fires fetch (name and move?)
 })

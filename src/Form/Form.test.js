@@ -36,4 +36,7 @@ describe('Form', () => {
       price: ''
     })
   })
+
+  //clearInputs
+  //handlePurchaseClick
 })

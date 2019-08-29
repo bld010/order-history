@@ -37,7 +37,7 @@ describe('App', () => {
   })
 
 
-  describe('fetchPurchases', () => {
+  describe('API calls', () => {
 
     let mockPurchases = [
       {name: 'X'},
@@ -53,32 +53,49 @@ describe('App', () => {
         })
       })
     
+      describe('fetchPurchases', () => {
 
-    it('should call fetch with the correct url', () => {
-        wrapper.instance().fetchPurchases();
-        expect(window.fetch).toHaveBeenCalledWith('http://localhost:3001/api/v1/purchases')
-    })
-
-    it('should return an array of ideas (happy)', () => {
-      let fetchPurchases = wrapper.instance().fetchPurchases;
-      
-      expect(fetchPurchases()).resolves.toEqual(mockPurchases)
-
-    })
-
-    it('should return an error (sad)' , () => {
-      window.fetch = jest.fn()
-        .mockImplementation(() => {
-          return Promise.resolve({
-            ok: false
-          })
+        it('should call fetch with the correct url', () => {
+            wrapper.instance().fetchPurchases();
+            expect(window.fetch).toHaveBeenCalledWith('http://localhost:3001/api/v1/purchases')
+        })
+    
+        it('should return an array of ideas (happy)', () => {
+          let fetchPurchases = wrapper.instance().fetchPurchases;
+          expect(fetchPurchases()).resolves.toEqual(mockPurchases)
+        })
+    
+        it('should return an error (sad)' , () => {
+          window.fetch = jest.fn()
+            .mockImplementation(() => {
+              return Promise.resolve({
+                ok: false
+              })
+            })
+    
+          let fetchPurchases = wrapper.instance().fetchPurchases;
+    
+          expect(fetchPurchases()).rejects.toEqual(Error('Error fetching purchases.'))
         })
 
-      let fetchPurchases = wrapper.instance().fetchPurchases;
+      })
 
-      expect(fetchPurchases()).rejects.toEqual(Error('Error fetching purchases.'))
+      describe('postNewPurchase', () => {
 
-    })
+        it('should call fetch with the correct url', () => {
+          let mockNewPurchase = { 
+            id: 1, 
+            name: 'iPhone', 
+            description: 'Expensive phone',
+            img: 'www.apple.com/iphone.bmp',
+            price: 900
+           }
+
+          wrapper.instance().postNewPurchase(mockNewPurchase)
+
+          expect(window.fetch).toHaveBeenCalledWith('http://localhost:3001/api/v1/purchases')
+        })
+      })
 
   })
 

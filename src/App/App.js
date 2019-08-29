@@ -35,7 +35,7 @@ class App extends Component {
           throw Error('Error deleting item.')
         }
       })
-      .catch(error => console.error(error))
+      .catch(error => console.log(error))
   }
 
   postNewPurchase = (newPurchase) => {
@@ -53,7 +53,7 @@ class App extends Component {
           throw Error('Error posting purchases');
         }
       })
-      .catch(error => console.Error(error))
+      .catch(error => console.log(error))
   }
 
   fetchPurchases = () => {

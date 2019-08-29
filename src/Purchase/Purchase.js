@@ -1,7 +1,7 @@
 import React from 'react';
 import './Purchase.css';
 
-const Purchase = ({purchase}) => {
+const Purchase = ({purchase, deletePurchase}) => {
   return(
     <article className="Purchase">
       <div className="left">
@@ -13,7 +13,7 @@ const Purchase = ({purchase}) => {
       </div>
       <div className="right">
         <h3>${purchase.price}</h3>
-        <button>Remove From History</button>
+        <button onClick={(d) => deletePurchase(e, purchase.id)}>Remove From History</button>
       </div>
     </article>
   )

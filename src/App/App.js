@@ -18,6 +18,17 @@ class App extends Component {
     this.postNewPurchase(newPurchase);
   }
 
+  deletePurchase = (e, idOfPurchase) => {
+    let updatedPurchases = this.state.purchases.filter( purchase => {
+      return purchase.id !== idOfPurchase
+    })
+    this.setState({purchases: updatedPurchases})
+  } 
+
+  deletePurchaseFetch = () => {
+
+  }
+
   postNewPurchase = (newPurchase) => {
     const options={
       method: 'POST',
@@ -58,7 +69,9 @@ class App extends Component {
           </div>
         </header>
         <div className='purchase-container'>
-          <PurchasesContainer purchases={this.state.purchases} />
+          <PurchasesContainer 
+          deletePurchase={this.deletePurchase}
+          purchases={this.state.purchases} />
         </div>
       </div>
     );

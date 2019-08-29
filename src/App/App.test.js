@@ -36,6 +36,28 @@ describe('App', () => {
     expect(expected).toEqual([...mockPurchases, mockNewPurchase])
   })
 
-  //postNewPurchase Fetch
-  //componentDidMount --> fires fetch (name and move?)
+  it('should call fetch with the correct url', () => {
+
+
+    let mockPurchases = [
+      {name: 'X'},
+      {name: 'Y'},
+      {name: 'Z'}
+    ]
+  
+    window.fetch = jest.fn()
+      .mockImplementation(() => {
+        return Promise.resolve({
+          ok: true,
+          json: () => Promise.resolve(mockPurchases)
+        })
+      })
+
+      wrapper.instance().fetchPurchases();
+
+      expect(window.fetch).toHaveBeenCalledWith('http://localhost:3001/api/v1/purchases')
+
+  })
+
+
 })

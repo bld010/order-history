@@ -11,7 +11,7 @@ exports[`App should match the snapshot 1`] = `
       My Order History
     </h1>
     <div
-      className="purchase-form"
+      className="Form"
     >
       <Form
         addNewPurchase={[Function]}

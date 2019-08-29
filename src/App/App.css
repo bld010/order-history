@@ -16,14 +16,7 @@ h1 {
   font-size: 72px;
 }
 
-.purchase-form {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  height: 100%;
-  width: 50%;
-}
+
 
 .purchase-container {
   height: 700px;

@@ -12,7 +12,7 @@ const Purchase = ({purchase}) => {
         <p>{purchase.description}</p>
       </div>
       <div className="right">
-        <h3>{purchase.price}</h3>
+        <h3>${purchase.price}</h3>
         <button>Remove From History</button>
       </div>
     </article>

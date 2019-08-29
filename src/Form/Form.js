@@ -13,34 +13,38 @@ class Form extends Component {
     }
   }
 
+  handleFormInputs = (e) => {
+    this.setState({ [e.target.name]: e.target.value})
+  }
+
   render() {
     return(
-      <form>
+      <form className="Form">
         <input 
           name='img'
           type='text'
-          // onChange
+          onChange={this.handleFormInputs}
           placeholder='Image url:'
           value={this.state.img}
         />
         <input 
           name='name'
           type='text'
-          // onChange
+          onChange={this.handleFormInputs}
           placeholder='Name:'
           value={this.state.name}
         />
          <input 
           name='description'
           type='text'
-          // onChange
+          onChange={this.handleFormInputs}
           placeholder='Description:'
           value={this.state.description}
         />
          <input 
           name='price'
           type='number'
-          // onChange
+          onChange={this.handleFormInputs}
           placeholder='Price: '
           value={this.state.price}
         />

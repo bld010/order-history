@@ -9,12 +9,26 @@ class Form extends Component {
       img: '',
       name: '',
       description: '',
-      price: null
+      price: ''
     }
   }
 
   handleFormInputs = (e) => {
-    this.setState({ [e.target.name]: e.target.value})
+    this.setState({ [e.target.name]: e.target.value});
+  }
+
+  clearInputs = () => {
+    this.setState({
+      img: '',
+      name: '',
+      description: '',
+      price: '' 
+    })
+  }
+ 
+  handleAddPurchaseClick = (e) => {
+    this.clearInputs();
+    this.props.addNewPurchase(e, this.state)
   }
 
   render() {
@@ -48,7 +62,7 @@ class Form extends Component {
           placeholder='Price: '
           value={this.state.price}
         />
-        <button onClick={(e) => this.props.addNewPurchase(e, this.state)}>
+        <button onClick={this.handleAddPurchaseClick}>
           Add Purchase
         </button>
       </form>
